@@ -55,11 +55,11 @@ class TestVarasto(unittest.TestCase):
         self.assertEqual(self.varasto.saldo, self.varasto.tilavuus)
 
     def test_ottaminen_ei_ole_negatiivinen(self): 
-        self.assertEqual(self.varasto.ota_varastosta(-1), 0)
+        self.assertEqual(self.varasto.ota_varastosta(-1), 100)
 
     def test_ota_varastostosta_liikaa(self):
         saldo = self.varasto.saldo
-        self.assertEqual(saldo, self.varasto.ota_varastosta(self.varasto.saldo) )
+        self.assertEqual(saldo, self.varasto.ota_varastosta(self.varasto.saldo+1) )
 
     def test_str(self):
         self.assertEqual(f"saldo = {self.varasto.saldo}, vielä tilaa {self.varasto.paljonko_mahtuu()}" , str(self.varasto))
